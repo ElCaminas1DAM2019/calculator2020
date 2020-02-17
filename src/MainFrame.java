@@ -392,7 +392,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
     
     private void btnSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtractActionPerformed
-        operatorButtonPressed(OperatorType.SUBTRACT);
+        if (textFieldDisplay.getText() == null || textFieldDisplay.getText().equals("") || erase) {
+            eraseIfNeededAndWriteNumber("-");
+        } else { 
+            operatorButtonPressed(OperatorType.SUBTRACT);
+        }
     }//GEN-LAST:event_btnSubtractActionPerformed
 
     private void btnMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplyActionPerformed
@@ -404,7 +408,12 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDivideActionPerformed
     
     private void btnEqualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualActionPerformed
-        operatorButtonPressed(OperatorType.NONE);
+        if (!erase) {
+            //erase = true;
+            calculateResult();
+            displayResult();
+            operator = OperatorType.NONE;
+        }
     }//GEN-LAST:event_btnEqualActionPerformed
 
     private void operatorButtonPressed(OperatorType operatorType) {
