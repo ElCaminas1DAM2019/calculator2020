@@ -35,12 +35,15 @@ public class MainFrame extends javax.swing.JFrame {
         
     }
     
-    private void eraseIfNeededAndWriteNumber(String numberStr) {
+    private void eraseIfNeeded() {
         if (erase) {
             textFieldDisplay.setText("");
             erase = false;
         }
-        textFieldDisplay.setText(textFieldDisplay.getText() + 
+    }
+    
+    private void writeNumber(String numberStr) {
+         textFieldDisplay.setText(textFieldDisplay.getText() + 
                                     numberStr);
     }
     
@@ -336,50 +339,61 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        eraseIfNeededAndWriteNumber("2");
+        eraseIfNeeded();
+        writeNumber("2");
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        eraseIfNeededAndWriteNumber("1");
+        eraseIfNeeded();
+        writeNumber("1");
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        eraseIfNeededAndWriteNumber("3");
+        eraseIfNeeded();
+        writeNumber("3");
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
-        eraseIfNeededAndWriteNumber("5");
+        eraseIfNeeded();
+        writeNumber("5");
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
-        eraseIfNeededAndWriteNumber("7");
+        eraseIfNeeded();
+        writeNumber("7");
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
-        eraseIfNeededAndWriteNumber("6");
+        eraseIfNeeded();
+        writeNumber("6");
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
-        eraseIfNeededAndWriteNumber("8");
+        eraseIfNeeded();
+        writeNumber("8");
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-        eraseIfNeededAndWriteNumber("4");
+        eraseIfNeeded();
+        writeNumber("4");
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
-        eraseIfNeededAndWriteNumber("9");
+        eraseIfNeeded();
+        writeNumber("9");
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btnCommaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommaActionPerformed
         String s = textFieldDisplay.getText();
         if ( ! s.contains("" + decimalSeparator)) {
-            eraseIfNeededAndWriteNumber("" + decimalSeparator);
+            eraseIfNeeded();
+            writeNumber("" + decimalSeparator);
         }
     }//GEN-LAST:event_btnCommaActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
-        eraseIfNeededAndWriteNumber("0");
+        eraseIfNeeded();
+        writeNumber("0");
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
@@ -393,7 +407,8 @@ public class MainFrame extends javax.swing.JFrame {
     
     private void btnSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtractActionPerformed
         if (textFieldDisplay.getText() == null || textFieldDisplay.getText().equals("") || erase) {
-            eraseIfNeededAndWriteNumber("-");
+            eraseIfNeeded();
+            writeNumber("-");
         } else { 
             operatorButtonPressed(OperatorType.SUBTRACT);
         }
